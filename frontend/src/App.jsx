@@ -1,49 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { connect, sendMsg } from "./api"
-import React, { Component } from "react"
-import Header from './components/Header/Header'
-import ChatHistory from './components/ChatHistory/ChatHistory'
-import ChatInput from './components/ChatInput/ChatInput'
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import { connect, sendMsg } from "./api";
+import Header from './components/Header/Header';
+import ChatHistory from './components/ChatHistory/ChatHistory';
+import ChatInput from './components/ChatInput/ChatInput';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      chatHistory: []
-    }
-    connect();
-  }
+const App = () => {
+  const [chatHistory, setChatHistory] = useState([]);
 
-
-  componentDidMount() {
+  useEffect(() => {
     connect((msg) => {
-      console.log("New Message")
-      this.setState(prevState => ({
-        chatHistory: [...this.state.chatHistory, msg]
-      }))
-      console.log(this.state);
+      console.log("New Message");
+      setChatHistory(prevHistory => [...prevHistory, msg]);
     });
-  }
+  }, []);
 
-  send(event) {
-    if(event.keyCode === 13) {
+  const send = (event) => {
+    if (event.keyCode === 13) {
       sendMsg(event.target.value);
       event.target.value = "";
     }
-  }
+  };
 
-  render() {
-    return (
-      <div className="App">
-        <Header/>
-        <ChatHistory chatHistory={this.state.chatHistory} />
-        <ChatInput send={this.send} />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="App">
+      <Header />
+      <ChatHistory chatHistory={chatHistory} />
+      <ChatInput send={send} />
+    </div>
+  );
+};
 
-export default App
+export default App;
+
