@@ -7,7 +7,7 @@ Welcome to the **Chat Web App**! This is a real-time chat application that suppo
 ✅ **Real-time messaging** via WebSockets  
 ✅ **Multi-client support** for seamless group chats  
 ✅ **Modern and responsive UI** built with React.js  
-✅ **High-performance backend** powered by Go  
+✅ **High-performance backend** powered by Go (gorutines) 
 ✅ **Lightweight and scalable architecture**  
 
 ## 🛠️ Tech Stack
@@ -53,6 +53,8 @@ Once both the frontend and backend are running, open your browser and navigate t
 ```
 http://localhost:3000
 ```
+
+***To use the multiple clients feature on your local PC, you need to open multiple browser tabs.***
 
 <!-- ## 📸 Screenshots
 ![Chat UI](https://via.placeholder.com/800x400.png?text=Chat+Web+App) -->
