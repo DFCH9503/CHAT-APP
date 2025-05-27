@@ -59,6 +59,10 @@ http://localhost:3000
 <!-- ## 📸 Screenshots
 ![Chat UI](https://via.placeholder.com/800x400.png?text=Chat+Web+App) -->
 
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
 ## 🤝 Contributing
 Pull requests are welcome! Feel free to submit issues and help improve the project.
 
